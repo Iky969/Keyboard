@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Terminal IME"
+rootProject.name = "TerminalKeyboard"
 
 include(":app")

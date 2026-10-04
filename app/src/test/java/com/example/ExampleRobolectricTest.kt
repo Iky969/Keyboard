@@ -16,7 +16,7 @@ class ExampleRobolectricTest {
   fun `read string from context`() {
     val context = ApplicationProvider.getApplicationContext<Context>()
     val appName = context.getString(R.string.app_name)
-    assertEquals("Terminal IME", appName)
+    assertEquals("TerminalKeyboard", appName)
     val imeName = context.getString(R.string.ime_service_name)
     assertEquals("Terminal Keypad IME", imeName)
   }

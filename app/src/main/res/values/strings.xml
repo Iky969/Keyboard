@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Terminal IME</string>
+    <string name="app_name">TerminalKeyboard</string>
     <string name="ime_service_name">Terminal Keypad IME</string>
     <string name="subtype_en_us">English (Terminal / Hardware Keypad)</string>
     
