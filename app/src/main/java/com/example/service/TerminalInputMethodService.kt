@@ -1,6 +1,7 @@
 package com.example.service
 
 import android.annotation.SuppressLint
+import android.content.ClipboardManager
 import android.content.Context
 import android.inputmethodservice.InputMethodService
 import android.os.Build
@@ -21,6 +22,8 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.R
@@ -28,7 +31,7 @@ import com.example.R
 /**
  * Official Android InputMethodService designed specifically for terminal/shell/Termux/SSH sessions.
  * Sends authentic hardware KeyEvents with full modifier states (Ctrl, Alt, Shift), DPAD arrows,
- * Esc, Tab, and F1–F12 keys.
+ * Esc, Tab, F1–F12 keys, integrated Clipboard paste, quick guide, and complete punctuation keys.
  */
 class TerminalInputMethodService : InputMethodService() {
 
@@ -60,6 +63,7 @@ class TerminalInputMethodService : InputMethodService() {
     private var layerFn: View? = null
     private var snippetsBar: HorizontalScrollView? = null
     private var snippetsContainer: LinearLayout? = null
+    private var guidePanel: View? = null
 
     private val qwertyLetterButtons = mutableListOf<Button>()
 
@@ -99,6 +103,7 @@ class TerminalInputMethodService : InputMethodService() {
         snippetsContainer = root.findViewById(R.id.snippets_container)
 
         setupTerminalTopBar(root)
+        setupGuidePanel(root)
         setupQwertyLayer(root)
         setupSymbolsLayer(root)
         setupFnLayer(root)
@@ -194,6 +199,14 @@ class TerminalInputMethodService : InputMethodService() {
         }
     }
 
+    private fun sendHardwareKeyWithModifier(keyCode: Int, metaState: Int) {
+        performHaptic()
+        val ic = currentInputConnection ?: return
+        val eventTime = SystemClock.uptimeMillis()
+        ic.sendKeyEvent(KeyEvent(eventTime, eventTime, KeyEvent.ACTION_DOWN, keyCode, 0, metaState))
+        ic.sendKeyEvent(KeyEvent(eventTime, eventTime, KeyEvent.ACTION_UP, keyCode, 0, metaState))
+    }
+
     private fun commitCharacterOrHardwareKey(char: Char) {
         performHaptic()
         val isModifierActive = isCtrlActive || isCtrlLocked || isAltActive || isAltLocked
@@ -208,10 +221,17 @@ class TerminalInputMethodService : InputMethodService() {
         }
 
         val ic = currentInputConnection ?: return
-        val textToCommit = if (isShiftActive || isShiftLocked) {
-            char.uppercase()
-        } else {
-            char.lowercase()
+        val isShift = isShiftActive || isShiftLocked
+        val textToCommit = when (char) {
+            in 'a'..'z', in 'A'..'Z' -> if (isShift) char.uppercase() else char.lowercase()
+            ';' -> if (isShift) ":" else ";"
+            ',' -> if (isShift) "<" else ","
+            '.' -> if (isShift) ">" else "."
+            ':' -> if (isShift) ";" else ":"
+            '\'' -> if (isShift) "\"" else "'"
+            '/' -> if (isShift) "?" else "/"
+            '-' -> if (isShift) "_" else "-"
+            else -> char.toString()
         }
         ic.commitText(textToCommit, 1)
 
@@ -272,6 +292,9 @@ class TerminalInputMethodService : InputMethodService() {
             '[' -> KeyEvent.KEYCODE_LEFT_BRACKET
             ']' -> KeyEvent.KEYCODE_RIGHT_BRACKET
             ';' -> KeyEvent.KEYCODE_SEMICOLON
+            ':' -> KeyEvent.KEYCODE_SEMICOLON
+            ',' -> KeyEvent.KEYCODE_COMMA
+            '.' -> KeyEvent.KEYCODE_PERIOD
             '\'' -> KeyEvent.KEYCODE_APOSTROPHE
             '`' -> KeyEvent.KEYCODE_GRAVE
             else -> KeyEvent.KEYCODE_UNKNOWN
@@ -299,12 +322,12 @@ class TerminalInputMethodService : InputMethodService() {
             toggleAltState()
         }
 
-        root.findViewById<Button>(R.id.key_pipe).setOnClickListener {
-            commitRawText("|")
+        root.findViewById<Button>(R.id.key_paste).setOnClickListener {
+            handleClipboardPaste()
         }
 
-        root.findViewById<Button>(R.id.key_tilde).setOnClickListener {
-            commitRawText("~")
+        root.findViewById<Button>(R.id.key_guide).setOnClickListener {
+            toggleGuidePanel()
         }
 
         // DPAD Arrow Keys with auto-repeat on hold
@@ -327,6 +350,111 @@ class TerminalInputMethodService : InputMethodService() {
     }
 
     // ==========================================
+    // CLIPBOARD PASTE HANDLER
+    // ==========================================
+    private fun handleClipboardPaste() {
+        performHaptic()
+        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager
+        if (clipboard == null || !clipboard.hasPrimaryClip()) {
+            Toast.makeText(this, "Clipboard kosong (tidak ada teks tersimpan)", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val clip = clipboard.primaryClip
+        if (clip != null && clip.itemCount > 0) {
+            val text = clip.getItemAt(0).coerceToText(this)?.toString()
+            if (!text.isNullOrEmpty()) {
+                val ic = currentInputConnection
+                if (ic != null) {
+                    ic.commitText(text, 1)
+                    val preview = if (text.length > 20) text.take(20) + "…" else text
+                    Toast.makeText(this, "Pasted: $preview", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "Clipboard kosong", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "Clipboard kosong", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // ==========================================
+    // GUIDE PANEL SETUP
+    // ==========================================
+    private fun setupGuidePanel(root: View) {
+        guidePanel = root.findViewById(R.id.guide_panel)
+
+        root.findViewById<Button>(R.id.btn_close_guide)?.setOnClickListener {
+            guidePanel?.visibility = View.GONE
+        }
+
+        // Quick action buttons in guide
+        root.findViewById<Button>(R.id.guide_btn_ctrl_c)?.setOnClickListener {
+            sendHardwareKeyWithModifier(KeyEvent.KEYCODE_C, KeyEvent.META_CTRL_ON or KeyEvent.META_CTRL_LEFT_ON)
+            Toast.makeText(this, "Sent: Ctrl+C (SIGINT)", Toast.LENGTH_SHORT).show()
+        }
+
+        root.findViewById<Button>(R.id.guide_btn_ctrl_v)?.setOnClickListener {
+            handleClipboardPaste()
+        }
+
+        root.findViewById<Button>(R.id.guide_btn_ctrl_z)?.setOnClickListener {
+            sendHardwareKeyWithModifier(KeyEvent.KEYCODE_Z, KeyEvent.META_CTRL_ON or KeyEvent.META_CTRL_LEFT_ON)
+            Toast.makeText(this, "Sent: Ctrl+Z (SIGTSTP)", Toast.LENGTH_SHORT).show()
+        }
+
+        root.findViewById<Button>(R.id.guide_btn_ctrl_d)?.setOnClickListener {
+            sendHardwareKeyWithModifier(KeyEvent.KEYCODE_D, KeyEvent.META_CTRL_ON or KeyEvent.META_CTRL_LEFT_ON)
+            Toast.makeText(this, "Sent: Ctrl+D (EOF/Logout)", Toast.LENGTH_SHORT).show()
+        }
+
+        root.findViewById<Button>(R.id.guide_btn_ctrl_l)?.setOnClickListener {
+            sendHardwareKeyWithModifier(KeyEvent.KEYCODE_L, KeyEvent.META_CTRL_ON or KeyEvent.META_CTRL_LEFT_ON)
+            Toast.makeText(this, "Sent: Ctrl+L (Clear Screen)", Toast.LENGTH_SHORT).show()
+        }
+
+        // Monospace guide text content
+        val guideTextView = root.findViewById<TextView>(R.id.guide_text_content)
+        guideTextView?.text = """
+📌 CARA PASTE & CLIPBOARD:
+• Klik tombol 📋 pada bar atas keyboard untuk langsung paste teks dari clipboard.
+• Atau gunakan shortcut Ctrl + V (Tekan tombol CTRL lalu tekan huruf v).
+
+⚙️ SHORTCUT SHELL & TERMINAL PENTING:
+• Ctrl + C : Membatalkan / hentikan proses yang berjalan (SIGINT)
+• Ctrl + Z : Menjeda proses ke background (SIGTSTP, ketik 'fg' untuk lanjut)
+• Ctrl + D : Keluar dari sesi terminal / SSH / EOF
+• Ctrl + L : Membersihkan layar terminal (sama seperti perintah 'clear')
+• Ctrl + A : Pindah kursor langsung ke awal baris (Home)
+• Ctrl + E : Pindah kursor langsung ke ujung baris (End)
+• Ctrl + U : Hapus teks dari posisi kursor ke awal baris
+• Ctrl + K : Hapus teks dari posisi kursor ke akhir baris
+• Ctrl + W : Hapus 1 kata sebelum kursor
+• Ctrl + R : Cari riwayat perintah sebelumnya (reverse-i-search)
+
+⌨️ NAVIGASI & TOMBOL KHUSUS:
+• Tab      : Autocomplete otomatis nama file/perintah
+• Esc      : Keluar dari mode edit (Vim/Nano), batalkan prompt
+• ▲ / ▼    : Telusuri riwayat perintah sebelumnya / berikutnya
+• ◀ / ▶    : Geser kursor per karakter
+• Fn       : Akses F1-F12, Home, End, PgUp, PgDn, Ins, Del, Pipe (|), Tilde (~)
+• >_       : Buka baris perintah cepat (clear, ls -la, git, sudo, nano, dll)
+
+💡 TIPS PENGGUNAAN KEYBOARD:
+• Huruf Kecil & Besar: Keyboard menampilkan huruf kecil secara presisi saat Shift tidak aktif, dan huruf besar saat Shift aktif.
+• Sticky Modifier: Tekan CTRL, ALT, atau ⇧ sekali untuk mengaktifkan pada 1 tombol berikutnya.
+• Lock Modifier: Tekan 2x cepat untuk MENGUNCI (CTRL 🔒, ALT 🔒, ⇪ CAPS). Tekan lagi untuk melepas kunci.
+• Tanda Baca Lengkap: Titik koma (;), koma (,), titik (.), titik dua (:), petik ('), strip (-), dan slash (/) sudah tersedia langsung di layar utama QWERTY tanpa perlu pindah ke simbol!
+        """.trimIndent()
+    }
+
+    private fun toggleGuidePanel() {
+        performHaptic()
+        val panel = guidePanel ?: return
+        val isVisible = panel.visibility == View.VISIBLE
+        panel.visibility = if (isVisible) View.GONE else View.VISIBLE
+    }
+
+    // ==========================================
     // QWERTY LAYER SETUP
     // ==========================================
     private fun setupQwertyLayer(root: View) {
@@ -345,11 +473,50 @@ class TerminalInputMethodService : InputMethodService() {
         for ((id, char) in letterMap) {
             val btn = root.findViewById<Button>(id)
             if (btn != null) {
+                // Ensure Android does not transform lowercase letters to uppercase
+                btn.transformationMethod = null
+                btn.text = char.toString()
                 qwertyLetterButtons.add(btn)
                 btn.setOnClickListener {
                     commitCharacterOrHardwareKey(char)
                 }
             }
+        }
+
+        // Dedicated Punctuation Keys on QWERTY
+        root.findViewById<Button>(R.id.key_semicolon)?.apply {
+            transformationMethod = null
+            setOnClickListener { commitCharacterOrHardwareKey(';') }
+        }
+
+        root.findViewById<Button>(R.id.key_comma)?.apply {
+            transformationMethod = null
+            setOnClickListener { commitCharacterOrHardwareKey(',') }
+        }
+
+        root.findViewById<Button>(R.id.key_period)?.apply {
+            transformationMethod = null
+            setOnClickListener { commitCharacterOrHardwareKey('.') }
+        }
+
+        root.findViewById<Button>(R.id.key_colon)?.apply {
+            transformationMethod = null
+            setOnClickListener { commitCharacterOrHardwareKey(':') }
+        }
+
+        root.findViewById<Button>(R.id.key_singlequote)?.apply {
+            transformationMethod = null
+            setOnClickListener { commitCharacterOrHardwareKey('\'') }
+        }
+
+        root.findViewById<Button>(R.id.key_slash)?.apply {
+            transformationMethod = null
+            setOnClickListener { commitCharacterOrHardwareKey('/') }
+        }
+
+        root.findViewById<Button>(R.id.key_minus)?.apply {
+            transformationMethod = null
+            setOnClickListener { commitCharacterOrHardwareKey('-') }
         }
 
         btnShift = root.findViewById(R.id.key_shift)
@@ -361,14 +528,6 @@ class TerminalInputMethodService : InputMethodService() {
 
         root.findViewById<Button>(R.id.key_switch_symbols)?.setOnClickListener {
             switchLayer(KeyboardLayer.SYMBOLS)
-        }
-
-        root.findViewById<Button>(R.id.key_slash)?.setOnClickListener {
-            commitCharacterOrHardwareKey('/')
-        }
-
-        root.findViewById<Button>(R.id.key_minus)?.setOnClickListener {
-            commitCharacterOrHardwareKey('-')
         }
 
         root.findViewById<Button>(R.id.key_space)?.setOnClickListener {
@@ -399,13 +558,17 @@ class TerminalInputMethodService : InputMethodService() {
             R.id.sym_plus to "+", R.id.sym_equals to "=", R.id.sym_backslash to "\\",
             R.id.sym_brace_open to "{", R.id.sym_brace_close to "}",
             R.id.sym_bracket_open to "[", R.id.sym_bracket_close to "]",
-            R.id.sym_lt to "<", R.id.sym_gt to ">", R.id.sym_colon to ":",
-            R.id.sym_semicolon to ";", R.id.sym_doublequote to "\"", R.id.sym_singlequote to "'"
+            R.id.sym_lt to "<", R.id.sym_gt to ">", R.id.sym_tilde to "~",
+            R.id.sym_semicolon to ";", R.id.sym_pipe to "|",
+            R.id.sym_doublequote to "\"", R.id.sym_singlequote to "'"
         )
 
         for ((id, text) in symbolMap) {
-            root.findViewById<Button>(id)?.setOnClickListener {
-                commitRawText(text)
+            root.findViewById<Button>(id)?.apply {
+                transformationMethod = null
+                setOnClickListener {
+                    commitRawText(text)
+                }
             }
         }
 
@@ -454,8 +617,26 @@ class TerminalInputMethodService : InputMethodService() {
         )
 
         for ((id, keyCode) in fnMap) {
-            root.findViewById<Button>(id)?.setOnClickListener {
-                sendHardwareKey(keyCode)
+            root.findViewById<Button>(id)?.apply {
+                transformationMethod = null
+                setOnClickListener {
+                    sendHardwareKey(keyCode)
+                }
+            }
+        }
+
+        // Pipe and Tilde in Fn layer
+        root.findViewById<Button>(R.id.fn_pipe)?.apply {
+            transformationMethod = null
+            setOnClickListener {
+                commitRawText("|")
+            }
+        }
+
+        root.findViewById<Button>(R.id.fn_tilde)?.apply {
+            transformationMethod = null
+            setOnClickListener {
+                commitRawText("~")
             }
         }
 
@@ -497,6 +678,7 @@ class TerminalInputMethodService : InputMethodService() {
                 setTextColor(getColor(R.color.terminal_cyan))
                 textSize = 11f
                 typeface = android.graphics.Typeface.MONOSPACE
+                transformationMethod = null
                 setBackgroundResource(R.drawable.bg_key_special)
                 setPadding(dpToPx(10), 0, dpToPx(10), 0)
                 val params = LinearLayout.LayoutParams(
@@ -660,9 +842,10 @@ class TerminalInputMethodService : InputMethodService() {
             }
         }
 
-        // Update letters casing
+        // Update letters casing: strict lowercase when shift is inactive!
         val uppercase = isShiftActive || isShiftLocked
         for (btn in qwertyLetterButtons) {
+            btn.transformationMethod = null
             val text = btn.text.toString()
             btn.text = if (uppercase) text.uppercase() else text.lowercase()
         }

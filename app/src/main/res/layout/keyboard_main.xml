@@ -10,7 +10,7 @@
     android:paddingTop="5dp"
     android:paddingBottom="24dp">
 
-    <!-- TOP TERMINAL BAR (Hardware Keys & Modifiers) -->
+    <!-- TOP TERMINAL BAR (Hardware Keys, Modifiers, Clipboard, Guide & Arrows) -->
     <LinearLayout
         android:id="@+id/terminal_bar"
         android:layout_width="match_parent"
@@ -32,6 +32,7 @@
             android:textColor="@color/terminal_cyan"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -47,6 +48,7 @@
             android:textColor="@color/terminal_text_primary"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -62,6 +64,7 @@
             android:textColor="@color/terminal_text_primary"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -77,36 +80,39 @@
             android:textColor="@color/terminal_text_primary"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
+        <!-- CLIPBOARD PASTE BUTTON -->
         <Button
-            android:id="@+id/key_pipe"
+            android:id="@+id/key_paste"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.9"
+            android:layout_weight="1.0"
             android:layout_margin="1.5dp"
             android:background="@drawable/bg_key_special"
-            android:fontFamily="monospace"
-            android:text="|"
+            android:text="📋"
             android:textColor="@color/terminal_green"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:contentDescription="Paste Clipboard"
             android:padding="0dp" />
 
+        <!-- GUIDE BUTTON -->
         <Button
-            android:id="@+id/key_tilde"
+            android:id="@+id/key_guide"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.9"
+            android:layout_weight="1.0"
             android:layout_margin="1.5dp"
             android:background="@drawable/bg_key_special"
-            android:fontFamily="monospace"
-            android:text="~"
+            android:text="💡"
             android:textColor="@color/terminal_amber"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:contentDescription="Keyboard Guide"
             android:padding="0dp" />
 
         <Button
@@ -120,6 +126,7 @@
             android:text="▲"
             android:textColor="@color/terminal_cyan"
             android:textSize="15sp"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -133,6 +140,7 @@
             android:text="▼"
             android:textColor="@color/terminal_cyan"
             android:textSize="15sp"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -146,6 +154,7 @@
             android:text="◀"
             android:textColor="@color/terminal_cyan"
             android:textSize="15sp"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -159,6 +168,7 @@
             android:text="▶"
             android:textColor="@color/terminal_cyan"
             android:textSize="15sp"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -174,6 +184,7 @@
             android:textColor="@color/terminal_purple"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -189,6 +200,7 @@
             android:textColor="@color/terminal_green"
             android:textSize="12sp"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:padding="0dp" />
     </LinearLayout>
 
@@ -208,6 +220,156 @@
             android:orientation="horizontal"
             android:gravity="center_vertical" />
     </HorizontalScrollView>
+
+    <!-- TERMINAL GUIDE PANEL -->
+    <LinearLayout
+        android:id="@+id/guide_panel"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_panel_guide"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:layout_marginBottom="6dp">
+
+        <!-- Guide Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="monospace"
+                android:text="⚡ PANDUAN SHORTCUT TERMINAL"
+                android:textColor="@color/terminal_cyan"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_close_guide"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:fontFamily="monospace"
+                android:text="✖ Tutup"
+                android:textColor="@color/terminal_red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="0dp" />
+        </LinearLayout>
+
+        <!-- Guide Quick Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="6dp">
+
+            <Button
+                android:id="@+id/guide_btn_ctrl_c"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:background="@drawable/bg_key_special"
+                android:fontFamily="monospace"
+                android:text="Ctrl+C"
+                android:textColor="@color/terminal_red"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/guide_btn_ctrl_v"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:background="@drawable/bg_key_special"
+                android:fontFamily="monospace"
+                android:text="📋 Paste"
+                android:textColor="@color/terminal_green"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/guide_btn_ctrl_z"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:background="@drawable/bg_key_special"
+                android:fontFamily="monospace"
+                android:text="Ctrl+Z"
+                android:textColor="@color/terminal_amber"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/guide_btn_ctrl_d"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:background="@drawable/bg_key_special"
+                android:fontFamily="monospace"
+                android:text="Ctrl+D"
+                android:textColor="@color/terminal_purple"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="0dp" />
+
+            <Button
+                android:id="@+id/guide_btn_ctrl_l"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_margin="1dp"
+                android:background="@drawable/bg_key_special"
+                android:fontFamily="monospace"
+                android:text="Ctrl+L"
+                android:textColor="@color/terminal_cyan"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:padding="0dp" />
+        </LinearLayout>
+
+        <!-- Guide Body ScrollView -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fadeScrollbars="false">
+
+            <TextView
+                android:id="@+id/guide_text_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/terminal_text_primary"
+                android:textSize="11.5sp"
+                android:lineSpacingExtra="3dp" />
+        </ScrollView>
+    </LinearLayout>
 
     <!-- KEYBOARD LAYERS CONTAINER -->
     <FrameLayout

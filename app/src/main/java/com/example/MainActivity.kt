@@ -2,10 +2,12 @@ package com.example
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -47,7 +49,10 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
+import com.example.service.FloatingBubbleService
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
@@ -166,6 +171,15 @@ fun TerminalImeApp(
     var isImeEnabled by remember { mutableStateOf(false) }
     var isImeSelected by remember { mutableStateOf(false) }
 
+    val sharedPrefs = remember { context.getSharedPreferences("terminal_ime_prefs", Context.MODE_PRIVATE) }
+    var isBubbleEnabled by remember {
+        mutableStateOf(
+            sharedPrefs.getBoolean("floating_bubble_enabled", false) &&
+            Settings.canDrawOverlays(context) &&
+            FloatingBubbleService.isServiceRunning
+        )
+    }
+
     fun refreshImeStatus() {
         val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
         val enabledMethods = imm?.enabledInputMethodList ?: emptyList()
@@ -177,6 +191,40 @@ fun TerminalImeApp(
             Settings.Secure.DEFAULT_INPUT_METHOD
         ) ?: ""
         isImeSelected = currentIme.contains(pkgName)
+
+        val shouldBeEnabled = sharedPrefs.getBoolean("floating_bubble_enabled", false)
+        if (shouldBeEnabled && Settings.canDrawOverlays(context)) {
+            if (!FloatingBubbleService.isServiceRunning) {
+                FloatingBubbleService.start(context)
+            }
+            isBubbleEnabled = true
+        } else if (!Settings.canDrawOverlays(context)) {
+            isBubbleEnabled = false
+            sharedPrefs.edit().putBoolean("floating_bubble_enabled", false).apply()
+        }
+    }
+
+    val toggleBubble: (Boolean) -> Unit = { enabled ->
+        if (enabled) {
+            if (!Settings.canDrawOverlays(context)) {
+                Toast.makeText(context, "Beri izin 'Tampilkan di atas aplikasi lain' untuk mengaktifkan gelembung", Toast.LENGTH_LONG).show()
+                val intent = Intent(
+                    Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:${context.packageName}")
+                )
+                context.startActivity(intent)
+            } else {
+                FloatingBubbleService.start(context)
+                isBubbleEnabled = true
+                sharedPrefs.edit().putBoolean("floating_bubble_enabled", true).apply()
+                Toast.makeText(context, "Gelembung melayang aktif!", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            FloatingBubbleService.stop(context)
+            isBubbleEnabled = false
+            sharedPrefs.edit().putBoolean("floating_bubble_enabled", false).apply()
+            Toast.makeText(context, "Gelembung melayang dinonaktifkan", Toast.LENGTH_SHORT).show()
+        }
     }
 
     DisposableEffect(lifecycleOwner) {
@@ -226,6 +274,13 @@ fun TerminalImeApp(
                     isImeSelected = isImeSelected,
                     onOpenSettings = onOpenSettings,
                     onShowImePicker = onShowImePicker
+                )
+            }
+
+            item {
+                FloatingBubbleCard(
+                    isBubbleEnabled = isBubbleEnabled,
+                    onToggle = toggleBubble
                 )
             }
 
@@ -913,12 +968,15 @@ fun SupportedKeysGuideCard() {
                 color = TerminalGreen
             )
 
-            KeyMappingRow("1. Buka Termux / SSH / Editor", "Semua Aplikasi", "Keyboard ini bekerja di semua aplikasi Android, Termux, JuiceSSH, Chrome, dll.")
-            KeyMappingRow("2. Tombol ESC & TAB", "Hardware KeyEvent", "ESC untuk Vim/Nano, TAB untuk autocompletion file/perintah.")
-            KeyMappingRow("3. Tombol CTRL & ALT", "Sticky / Lock", "Tekan sekali untuk aktif (titik •), tekan lagi untuk terkunci (gembok 🔒). Contoh: Tekan CTRL lalu C untuk kirim SIGINT.")
-            KeyMappingRow("4. Panah DPAD", "▲ ▼ ◀ ▶", "Memanggil history perintah sebelumnya dan navigasi kursor.")
-            KeyMappingRow("5. Tombol Fn", "F1 – F12", "Membuka layer khusus F1–F12, Home, End, PgUp, PgDn.")
-            KeyMappingRow("6. Tombol 🌐", "Pilih Keyboard", "Beralih kembali ke Gboard/keyboard biasa kapan saja.")
+            KeyMappingRow("1. Buka Termux / SSH / Editor", "Semua Aplikasi", "Keyboard ini bekerja di semua aplikasi Android, Termux, JuiceSSH, Termius, Chrome, dll.")
+            KeyMappingRow("2. Clipboard & Paste", "Tombol 📋 & Ctrl+V", "Tekan tombol 📋 di bar atas keyboard untuk paste instan dari clipboard, atau tekan CTRL lalu v.")
+            KeyMappingRow("3. Panduan Cepat (Guide)", "Tombol 💡", "Tekan tombol 💡 di bar atas keyboard untuk membuka pop-up panduan shortcut lengkap & tombol aksi cepat.")
+            KeyMappingRow("4. Tombol CTRL & ALT", "Sticky / Lock", "Tekan sekali untuk aktif (titik •), tekan lagi untuk terkunci (gembok 🔒). Contoh: Tekan CTRL lalu c untuk kirim SIGINT.")
+            KeyMappingRow("5. Tanda Baca Lengkap", "; , . : ' - /", "Titik koma (;), koma (,), titik (.), titik dua (:), petik ('), strip (-), dan slash (/) siap digunakan langsung di layar utama QWERTY.")
+            KeyMappingRow("6. Simbol Pipe & Tilde", "| dan ~", "Kini dipindahkan ke layer Fn dan layer simbol (?123) untuk layout yang lebih rapi.")
+            KeyMappingRow("7. Panah DPAD & Navigasi", "▲ ▼ ◀ ▶", "Memanggil history perintah sebelumnya dan navigasi kursor interaktif.")
+            KeyMappingRow("8. Tombol Fn", "F1 – F12 + Nav", "Membuka layer khusus F1–F12, Home, End, PgUp, PgDn, Ins, Del, Pipe (|), dan Tilde (~).")
+            KeyMappingRow("9. Tombol 🌐", "Pilih Keyboard", "Beralih kembali ke keyboard lain kapan saja.")
         }
     }
 }
@@ -955,3 +1013,106 @@ fun KeyMappingRow(keyName: String, codeName: String, description: String) {
         )
     }
 }
+
+@Composable
+fun FloatingBubbleCard(
+    isBubbleEnabled: Boolean,
+    onToggle: (Boolean) -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .testTag("floating_bubble_card"),
+        colors = CardDefaults.cardColors(containerColor = TerminalSurface),
+        shape = RoundedCornerShape(14.dp),
+        border = CardDefaults.outlinedCardBorder().copy(
+            brush = androidx.compose.ui.graphics.SolidColor(
+                if (isBubbleEnabled) TerminalCyan else TerminalBorder
+            )
+        )
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(38.dp)
+                            .clip(CircleShape)
+                            .background(if (isBubbleEnabled) Color(0xFF003844) else TerminalSurfaceVariant)
+                            .border(1.5.dp, if (isBubbleEnabled) TerminalCyan else TerminalBorder, CircleShape),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = ">_",
+                            fontFamily = FontFamily.Monospace,
+                            fontWeight = FontWeight.Bold,
+                            color = if (isBubbleEnabled) TerminalCyan else TextMuted,
+                            fontSize = 15.sp
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(12.dp))
+                    Column {
+                        Text(
+                            text = "GELEMBUNG MELAYANG",
+                            fontFamily = FontFamily.Monospace,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 13.sp,
+                            color = if (isBubbleEnabled) TerminalCyan else TextPrimary
+                        )
+                        Text(
+                            text = if (isBubbleEnabled) "Status: Aktif (Bisa digeser)" else "Status: Nonaktif",
+                            fontSize = 11.sp,
+                            fontFamily = FontFamily.Monospace,
+                            color = if (isBubbleEnabled) TerminalGreen else TextMuted
+                        )
+                    }
+                }
+
+                Switch(
+                    checked = isBubbleEnabled,
+                    onCheckedChange = onToggle,
+                    colors = SwitchDefaults.colors(
+                        checkedThumbColor = Color.Black,
+                        checkedTrackColor = TerminalCyan,
+                        uncheckedThumbColor = TextMuted,
+                        uncheckedTrackColor = TerminalSurfaceVariant
+                    ),
+                    modifier = Modifier.testTag("floating_bubble_toggle")
+                )
+            }
+
+            Text(
+                text = "Munculkan tombol gelembung melayang di atas layar aplikasi apa pun. Anda bisa mengeluarkan keyboard kapan saja bahkan di aplikasi yang tidak memiliki kolom input teks (misal Termux, emulator, game, atau SSH).",
+                fontSize = 12.sp,
+                color = TextSecondary,
+                lineHeight = 16.sp
+            )
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(Color(0xFF142436))
+                    .padding(10.dp)
+            ) {
+                Text(
+                    text = "💡 Petunjuk: Gelembung dapat digeser ke sisi layar mana pun. Sentuh gelembung untuk memunculkan keyboard, dan sentuh lagi untuk menyembunyikannya.",
+                    fontSize = 11.5.sp,
+                    color = TerminalCyan,
+                    fontFamily = FontFamily.Monospace
+                )
+            }
+        }
+    }
+}
+

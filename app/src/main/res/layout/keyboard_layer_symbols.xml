@@ -11,16 +11,16 @@
         android:orientation="horizontal"
         android:layout_marginBottom="4dp">
 
-        <Button android:id="@+id/sym_1" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="1" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_2" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="2" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_3" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="3" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_4" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="4" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_5" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="5" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_6" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="6" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_7" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="7" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_8" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="8" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_9" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="9" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_0" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="0" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:padding="0dp" />
+        <Button android:id="@+id/sym_1" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="1" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_2" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="2" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_3" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="3" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_4" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="4" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_5" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="5" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_6" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="6" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_7" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="7" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_8" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="8" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_9" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="9" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_0" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="0" android:textColor="@color/terminal_text_primary" android:textSize="19sp" android:textAllCaps="false" android:padding="0dp" />
     </LinearLayout>
 
     <!-- Row 2: ` ! @ # $ % ^ & * _ -->
@@ -30,38 +30,38 @@
         android:orientation="horizontal"
         android:layout_marginBottom="4dp">
 
-        <Button android:id="@+id/sym_backtick" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="`" android:textColor="@color/terminal_cyan" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_exclamation" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="!" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_at" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="@" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_hash" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="#" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_dollar" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="$" android:textColor="@color/terminal_green" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_percent" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="%" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_caret" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="^" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_ampersand" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="&amp;" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_asterisk" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="*" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_underscore" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="_" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
+        <Button android:id="@+id/sym_backtick" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="`" android:textColor="@color/terminal_cyan" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_exclamation" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="!" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_at" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="@" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_hash" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="#" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_dollar" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="$" android:textColor="@color/terminal_green" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_percent" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="%" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_caret" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="^" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_ampersand" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="&amp;" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_asterisk" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="*" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_underscore" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="_" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
     </LinearLayout>
 
-    <!-- Row 3: + = \ { } [ ] < > : -->
+    <!-- Row 3: + = \ { } [ ] < > ~ -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:orientation="horizontal"
         android:layout_marginBottom="4dp">
 
-        <Button android:id="@+id/sym_plus" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="+" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_equals" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="=" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_backslash" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="\\" android:textColor="@color/terminal_amber" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_brace_open" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="{" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_brace_close" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="}" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_bracket_open" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="[" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_bracket_close" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="]" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_lt" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="&lt;" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_gt" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="&gt;" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_colon" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text=":" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
+        <Button android:id="@+id/sym_plus" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="+" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_equals" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="=" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_backslash" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="\\" android:textColor="@color/terminal_amber" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_brace_open" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="{" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_brace_close" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="}" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_bracket_open" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="[" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_bracket_close" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="]" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_lt" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="&lt;" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_gt" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="&gt;" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_tilde" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="~" android:textColor="@color/terminal_amber" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
     </LinearLayout>
 
-    <!-- Row 4: ABC | ; | " | ' | SPACE | ⌫ | ↵ -->
+    <!-- Row 4: ABC | ; | | | " | ' | SPACE | ⌫ | ↵ -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="52dp"
@@ -79,24 +79,27 @@
             android:textColor="@color/terminal_cyan"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
-        <Button android:id="@+id/sym_semicolon" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.9" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text=";" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_doublequote" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.9" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="&quot;" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
-        <Button android:id="@+id/sym_singlequote" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.9" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="'" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:padding="0dp" />
+        <Button android:id="@+id/sym_semicolon" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.8" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text=";" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_pipe" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.8" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="|" android:textColor="@color/terminal_green" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_doublequote" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.8" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="&quot;" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
+        <Button android:id="@+id/sym_singlequote" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.8" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="'" android:textColor="@color/terminal_text_primary" android:textSize="18sp" android:textAllCaps="false" android:padding="0dp" />
 
         <Button
             android:id="@+id/sym_space"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3.2"
+            android:layout_weight="3.0"
             android:layout_margin="1.5dp"
             android:background="@drawable/bg_key_normal"
             android:text="SPACE"
             android:textColor="@color/terminal_text_secondary"
             android:textSize="13sp"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -104,12 +107,13 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.4"
+            android:layout_weight="1.3"
             android:layout_margin="1.5dp"
             android:background="@drawable/bg_key_danger"
             android:text="⌫"
             android:textColor="@color/terminal_red"
             android:textSize="21sp"
+            android:textAllCaps="false"
             android:padding="0dp" />
 
         <Button
@@ -117,12 +121,13 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.6"
+            android:layout_weight="1.5"
             android:layout_margin="1.5dp"
             android:background="@drawable/bg_key_accent"
             android:text="↵"
             android:textColor="@color/terminal_green"
             android:textSize="16sp"
+            android:textAllCaps="false"
             android:padding="0dp" />
     </LinearLayout>
 </LinearLayout>
