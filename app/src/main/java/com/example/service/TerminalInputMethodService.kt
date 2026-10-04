@@ -21,6 +21,8 @@ import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.R
 
 /**
@@ -101,6 +103,20 @@ class TerminalInputMethodService : InputMethodService() {
         setupSymbolsLayer(root)
         setupFnLayer(root)
         setupSnippetsBar()
+
+        // Protect against home button / navigation bar collision
+        ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
+            val navInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+            val basePadding = dpToPx(24) // comfortable baseline clearance
+            val bottomPadding = maxOf(basePadding, navInsets.bottom + dpToPx(8))
+            v.setPadding(
+                dpToPx(4),
+                dpToPx(6),
+                dpToPx(4),
+                bottomPadding
+            )
+            insets
+        }
 
         updateModifierUi()
         switchLayer(KeyboardLayer.QWERTY)
