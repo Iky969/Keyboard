@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Terminal IME</string>
+    <string name="ime_service_name">Terminal Keypad IME</string>
+    <string name="subtype_en_us">English (Terminal / Hardware Keypad)</string>
+    
+    <!-- Wizard Strings -->
+    <string name="setup_title">Terminal Keypad IME</string>
+    <string name="setup_subtitle">Native system keyboard for Termux, SSH, shell &amp; coding with real hardware KeyEvents</string>
+    <string name="status_enabled">IME Enabled in System</string>
+    <string name="status_not_enabled">IME Disabled in System</string>
+    <string name="status_selected">Active Keyboard</string>
+    <string name="status_not_selected">Not Active Keyboard</string>
+    <string name="btn_enable_ime">1. Enable in System Settings</string>
+    <string name="btn_select_ime">2. Select Terminal IME</string>
+    <string name="playground_title">Terminal Interactive Playground</string>
+    <string name="playground_hint">Tap here to test Esc, Tab, Ctrl+C, Ctrl+D, Arrow keys, Fn keys…</string>
+    <string name="last_event_label">Detected KeyEvent:</string>
+    <string name="key_features_title">Supported Hardware Keys</string>
+    <string name="feature_ctrl_alt">Sticky &amp; Locked Modifiers (Ctrl, Alt, Shift)</string>
+    <string name="feature_dpad">Hardware DPAD Arrow Keys (Up, Down, Left, Right)</string>
+    <string name="feature_terminal">Terminal Keys (Esc, Tab, |, ~, Backspace, Enter)</string>
+    <string name="feature_fn">Function Keys (F1 through F12)</string>
+    <string name="feature_navigation">Navigation Block (Home, End, PgUp, PgDn, Insert, Del)</string>
+    <string name="label_symbols">\?123</string>
+</resources>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Row 1: Q W E R T Y U I O P -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <Button android:id="@+id/key_q" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="q" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_w" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="w" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_e" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="e" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_r" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="r" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_t" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="t" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_y" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="y" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_u" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="u" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_i" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="i" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_o" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="o" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_p" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="p" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- Row 2: A S D F G H J K L -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <Space android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.5" />
+        <Button android:id="@+id/key_a" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="a" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_s" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="s" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_d" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="d" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_f" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="f" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_g" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="g" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_h" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="h" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_j" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="j" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_k" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="k" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_l" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="l" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Space android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="0.5" />
+    </LinearLayout>
+
+    <!-- Row 3: SHIFT | Z X C V B N M | BACKSPACE -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <Button
+            android:id="@+id/key_shift"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="⇧"
+            android:textColor="@color/terminal_text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button android:id="@+id/key_z" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="z" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_x" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="x" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_c" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="c" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_v" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="v" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_b" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="b" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_n" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="n" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+        <Button android:id="@+id/key_m" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:text="m" android:textColor="@color/terminal_text_primary" android:textSize="17sp" android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_backspace"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_danger"
+            android:text="⌫"
+            android:textColor="@color/terminal_red"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- Row 4: ?123 | / | SPACE | - | ENTER | 🌐 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/key_switch_symbols"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.4"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="@string/label_symbols"
+            android:textColor="@color/terminal_cyan"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_slash"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_normal"
+            android:text="/"
+            android:textColor="@color/terminal_text_primary"
+            android:textSize="16sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_space"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_normal"
+            android:text="SPACE"
+            android:textColor="@color/terminal_text_secondary"
+            android:textSize="11sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_minus"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_normal"
+            android:text="-"
+            android:textColor="@color/terminal_text_primary"
+            android:textSize="16sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_enter"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.8"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_accent"
+            android:text="↵ ENTER"
+            android:textColor="@color/terminal_green"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_switch_ime"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="🌐"
+            android:textColor="@color/terminal_text_primary"
+            android:textSize="14sp"
+            android:padding="0dp" />
+    </LinearLayout>
+</LinearLayout>

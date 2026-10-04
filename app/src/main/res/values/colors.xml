@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="terminal_bg">#0D1117</color>
+    <color name="terminal_surface">#161B22</color>
+    <color name="terminal_surface_variant">#21262D</color>
+    <color name="terminal_border">#30363D</color>
+    <color name="terminal_text_primary">#E6EDF3</color>
+    <color name="terminal_text_secondary">#8B949E</color>
+    
+    <!-- Accent colors -->
+    <color name="terminal_green">#00E676</color>
+    <color name="terminal_cyan">#00E5FF</color>
+    <color name="terminal_amber">#FFB703</color>
+    <color name="terminal_red">#FF5252</color>
+    <color name="terminal_purple">#BC8CFF</color>
+
+    <!-- Key state colors -->
+    <color name="key_normal_bg">#1F2430</color>
+    <color name="key_normal_pressed">#2D3547</color>
+    <color name="key_special_bg">#151922</color>
+    <color name="key_special_pressed">#242B3B</color>
+    
+    <color name="key_active_ctrl_bg">#003844</color>
+    <color name="key_locked_ctrl_bg">#00B4D8</color>
+    <color name="key_active_alt_bg">#432800</color>
+    <color name="key_locked_alt_bg">#FB8500</color>
+    <color name="key_active_shift_bg">#00381B</color>
+    <color name="key_locked_shift_bg">#00E676</color>
+</resources>

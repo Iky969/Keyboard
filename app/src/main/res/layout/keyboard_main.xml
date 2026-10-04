@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keyboard_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/terminal_bg"
+    android:paddingStart="2dp"
+    android:paddingEnd="2dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="6dp">
+
+    <!-- TOP TERMINAL BAR (Hardware Keys & Modifiers) -->
+    <LinearLayout
+        android:id="@+id/terminal_bar"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="3dp">
+
+        <Button
+            android:id="@+id/key_esc"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="ESC"
+            android:textColor="@color/terminal_cyan"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_tab"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="TAB"
+            android:textColor="@color/terminal_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_ctrl"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="CTRL"
+            android:textColor="@color/terminal_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_alt"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="ALT"
+            android:textColor="@color/terminal_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_pipe"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="|"
+            android:textColor="@color/terminal_green"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_tilde"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="~"
+            android:textColor="@color/terminal_amber"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_up"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="▲"
+            android:textColor="@color/terminal_cyan"
+            android:textSize="12sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_down"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="▼"
+            android:textColor="@color/terminal_cyan"
+            android:textSize="12sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_left"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="◀"
+            android:textColor="@color/terminal_cyan"
+            android:textSize="12sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_right"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="▶"
+            android:textColor="@color/terminal_cyan"
+            android:textSize="12sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_fn_toggle"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.1"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="Fn"
+            android:textColor="@color/terminal_purple"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/key_snippets_toggle"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="&gt;_"
+            android:textColor="@color/terminal_green"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- QUICK SNIPPETS BAR (Horizontal scrollable shell shortcuts) -->
+    <HorizontalScrollView
+        android:id="@+id/snippets_bar"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:scrollbars="none"
+        android:visibility="gone"
+        android:layout_marginBottom="3dp">
+
+        <LinearLayout
+            android:id="@+id/snippets_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical" />
+    </HorizontalScrollView>
+
+    <!-- KEYBOARD LAYERS CONTAINER -->
+    <FrameLayout
+        android:id="@+id/layers_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- LAYER 1: QWERTY -->
+        <include
+            android:id="@+id/layer_qwerty"
+            layout="@layout/keyboard_layer_qwerty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- LAYER 2: SYMBOLS -->
+        <include
+            android:id="@+id/layer_symbols"
+            layout="@layout/keyboard_layer_symbols"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <!-- LAYER 3: FUNCTION KEYS (F1-F12 + NAV) -->
+        <include
+            android:id="@+id/layer_fn"
+            layout="@layout/keyboard_layer_fn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </FrameLayout>
+</LinearLayout>

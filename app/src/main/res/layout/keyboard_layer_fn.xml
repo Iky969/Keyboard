@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Row 1: F1 - F6 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <Button android:id="@+id/fn_f1" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F1" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f2" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F2" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f3" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F3" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f4" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F4" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f5" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F5" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f6" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F6" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- Row 2: F7 - F12 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <Button android:id="@+id/fn_f7" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F7" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f8" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F8" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f9" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F9" android:textColor="@color/terminal_purple" android:textSize="13sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f10" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F10" android:textColor="@color/terminal_purple" android:textSize="12sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f11" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F11" android:textColor="@color/terminal_purple" android:textSize="12sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/fn_f12" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_special" android:fontFamily="monospace" android:text="F12" android:textColor="@color/terminal_purple" android:textSize="12sp" android:textStyle="bold" android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- Row 3: HOME, END, PGUP, PGDN, INS, DEL -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
+
+        <Button android:id="@+id/nav_home" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:fontFamily="monospace" android:text="HOME" android:textColor="@color/terminal_cyan" android:textSize="11sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/nav_end" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:fontFamily="monospace" android:text="END" android:textColor="@color/terminal_cyan" android:textSize="11sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/nav_pgup" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:fontFamily="monospace" android:text="PGUP" android:textColor="@color/terminal_cyan" android:textSize="11sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/nav_pgdn" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:fontFamily="monospace" android:text="PGDN" android:textColor="@color/terminal_cyan" android:textSize="11sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/nav_insert" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_normal" android:fontFamily="monospace" android:text="INS" android:textColor="@color/terminal_amber" android:textSize="11sp" android:textStyle="bold" android:padding="0dp" />
+        <Button android:id="@+id/nav_del" style="?android:attr/borderlessButtonStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="1.5dp" android:background="@drawable/bg_key_danger" android:fontFamily="monospace" android:text="DEL" android:textColor="@color/terminal_red" android:textSize="11sp" android:textStyle="bold" android:padding="0dp" />
+    </LinearLayout>
+
+    <!-- Row 4: ABC | ESC | TAB | SPACE | ENTER | DPAD_CENTER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/key_switch_qwerty_from_fn"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.4"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="ABC"
+            android:textColor="@color/terminal_cyan"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/fn_esc"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="ESC"
+            android:textColor="@color/terminal_cyan"
+            android:textSize="11sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/fn_tab"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:fontFamily="monospace"
+            android:text="TAB"
+            android:textColor="@color/terminal_text_primary"
+            android:textSize="11sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/fn_space"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.8"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_normal"
+            android:text="SPACE"
+            android:textColor="@color/terminal_text_secondary"
+            android:textSize="11sp"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/fn_enter"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.8"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_accent"
+            android:text="↵ ENTER"
+            android:textColor="@color/terminal_green"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+
+        <Button
+            android:id="@+id/fn_dpad_center"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.3"
+            android:layout_margin="1.5dp"
+            android:background="@drawable/bg_key_special"
+            android:text="● SEL"
+            android:textColor="@color/terminal_amber"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:padding="0dp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+{
+  "name": "Terminal IME",
+  "description": "Native Android Terminal Keyboard with hardware KeyEvents for Termux & SSH: Esc, Tab, Ctrl, Alt, Arrow Keys, and F1-F12.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

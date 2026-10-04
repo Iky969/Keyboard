@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Outer Terminal Window Frame -->
+    <path
+        android:fillColor="#1A2436"
+        android:strokeColor="#2F4263"
+        android:strokeWidth="1.5"
+        android:pathData="M27,24 h54 a4,4 0 0 1 4,4 v52 a4,4 0 0 1 -4,4 h-54 a4,4 0 0 1 -4,-4 v-52 a4,4 0 0 1 4,-4 z" />
+
+    <!-- Terminal Window Header -->
+    <path
+        android:fillColor="#212F47"
+        android:pathData="M27,24 h54 a4,4 0 0 1 4,4 v8 h-62 v-8 a4,4 0 0 1 4,-4 z" />
+
+    <!-- Window Dots -->
+    <path
+        android:fillColor="#FF5F56"
+        android:pathData="M31,30 a1.8,1.8 0 1 1 0,0.01 z" />
+    <path
+        android:fillColor="#FFBD2E"
+        android:pathData="M36,30 a1.8,1.8 0 1 1 0,0.01 z" />
+    <path
+        android:fillColor="#27C93F"
+        android:pathData="M41,30 a1.8,1.8 0 1 1 0,0.01 z" />
+
+    <!-- Terminal Prompt: > -->
+    <path
+        android:strokeColor="#00E676"
+        android:strokeWidth="3.2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M32,47 L41,53 L32,59" />
+
+    <!-- Terminal Prompt Cursor: _ -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M45,56 h9 v3 h-9 z" />
+
+    <!-- Bottom Keycaps Simulation: ESC, CTRL, ARROWS -->
+    <!-- Esc keycap -->
+    <path
+        android:fillColor="#283A57"
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="0.8"
+        android:pathData="M30,66 h11 a1.5,1.5 0 0 1 1.5,1.5 v8 a1.5,1.5 0 0 1 -1.5,1.5 h-11 a1.5,1.5 0 0 1 -1.5,-1.5 v-8 a1.5,1.5 0 0 1 1.5,-1.5 z" />
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M32,69 h7 v1.5 h-7 z M32,72 h5 v1.5 h-5 z M32,74.5 h7 v1.5 h-7 z" />
+
+    <!-- Ctrl keycap -->
+    <path
+        android:fillColor="#283A57"
+        android:strokeColor="#00E676"
+        android:strokeWidth="0.8"
+        android:pathData="M46,66 h14 a1.5,1.5 0 0 1 1.5,1.5 v8 a1.5,1.5 0 0 1 -1.5,1.5 h-14 a1.5,1.5 0 0 1 -1.5,-1.5 v-8 a1.5,1.5 0 0 1 1.5,-1.5 z" />
+    <path
+        android:fillColor="#00E676"
+        android:pathData="M48,69 h9 v1.5 h-9 z M48,72 h6 v1.5 h-6 z" />
+
+    <!-- Arrows mini-dpad -->
+    <path
+        android:fillColor="#223048"
+        android:pathData="M65,66 h13 a1.5,1.5 0 0 1 1.5,1.5 v8 a1.5,1.5 0 0 1 -1.5,1.5 h-13 a1.5,1.5 0 0 1 -1.5,-1.5 v-8 a1.5,1.5 0 0 1 1.5,-1.5 z" />
+    <!-- Up arrow -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M71.5,68.5 L69.5,71.5 h4 z" />
+    <!-- Down arrow -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M71.5,75.5 L69.5,72.5 h4 z" />
+</vector>
